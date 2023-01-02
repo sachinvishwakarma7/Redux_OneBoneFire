@@ -8,7 +8,7 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_FAILURE,
   SIGN_IN_SUCCESS,
-} from '../Constants/Login.types';
+} from '../Constants/Login.type';
 import apiEndPoints from '../../Utilits/apiEndPoints';
 // import { useDispatch } from 'react-redux';
 
@@ -35,14 +35,14 @@ export const SignIn = params => {
       if (error.response) {
         dispatch({
           type: SIGN_IN_FAILURE,
-          payload: {login_response: error},
+          payload: {login_response: null},
           error: true,
         });
         return error;
       } else {
         dispatch({
           type: SIGN_IN_FAILURE,
-          payload: {login_response: error},
+          payload: {login_response: null},
           error: true,
         });
         return error;
@@ -50,4 +50,3 @@ export const SignIn = params => {
     }
   };
 };
-

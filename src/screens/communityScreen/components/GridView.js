@@ -1,25 +1,21 @@
 import {template} from '@babel/core';
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  TouchableOpacity,
-  ActivityIndicator,
-  Alert,
-} from 'react-native';
+import {View, Text, FlatList, Image, TouchableOpacity} from 'react-native';
 import {Dimensions} from 'react-native';
-// import {AuthContext} from '../../../Context/AuthProvider';
+import {useDispatch, useSelector} from 'react-redux';
+import {cartItems} from '../../../redux/Action/CartItems.action';
 
-const GridView = ({navigation, data, pageSize}) => {
-  // const {isLoading, setIsLoading, cartData, setGetCartItem, getCartItem} =
-  //   useContext(AuthContext);
+const GridView = ({navigation, data}) => {
+  const dispatch = useDispatch();
+  const {login_response} = useSelector(state => state.SignInReducer);
+  const {cart_items} = useSelector(state => state.cartItemsReducer);
+
   const ScreenWidth = Dimensions.get('window').width;
   const ScreenHeight = Dimensions.get('window').height;
 
   const _addToCart = async item => {
-    console.log('GridView, _addToCart', item);
+    console.log('GridView, cart_items', cart_items);
+    dispatch(cartItems(item?.id, login_response?.token));
     /*
     if (getCartItem.some(data => data.product_Details.id == item.id)) {
       Alert.alert('items already have in cart');
@@ -111,21 +107,21 @@ const GridView = ({navigation, data, pageSize}) => {
 
   return (
     <React.Fragment>
-        <View style={{marginBottom: 150}}>
-          <FlatList
-            onEndReachedThreshold={1}
-            numColumns={2}
-            horizontal={false}
-            data={data}
-            renderItem={renderItem}
-            keyExtractor={useCallback(
-              item => {
-                return item.id;
-              },
-              [data],
-            )}
-          />
-        </View>
+      <View style={{marginBottom: 150}}>
+        <FlatList
+          onEndReachedThreshold={1}
+          numColumns={2}
+          horizontal={false}
+          data={data}
+          renderItem={renderItem}
+          keyExtractor={useCallback(
+            item => {
+              return item.id;
+            },
+            [data],
+          )}
+        />
+      </View>
     </React.Fragment>
   );
 };

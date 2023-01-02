@@ -2,7 +2,7 @@ import {
   SIGN_IN_REQUEST,
   SIGN_IN_SUCCESS,
   SIGN_IN_FAILURE,
-} from '../Constants/Login.types';
+} from '../Constants/Login.type';
 import {initialState} from '../../Utilits/Constants';
 
 export const SignInReducer = (state = initialState, action) => {

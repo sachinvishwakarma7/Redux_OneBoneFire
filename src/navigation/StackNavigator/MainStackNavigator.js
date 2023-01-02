@@ -2,11 +2,10 @@ import React, {useContext} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Image, TouchableOpacity, Alert} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
-// import ProductDetails from './ProductDetails';
 import BottomNavigator from '../BottomNavigator/BottomNavigator';
 import {Logout} from '../../redux/Action/Logout.Action';
 import {useDispatch} from 'react-redux';
+import ProductDetails from '../../screens/productDetailsScreen/ProductDetails';
 
 const Stack = createNativeStackNavigator();
 
@@ -52,13 +51,13 @@ const MainStack = ({navigation}) => {
             ),
           })}
         />
-        {/* <Stack.Screen
-            options={() => ({
-              headerTitleAlign: 'center',
-            })}
-            name="ProductDetails"
-            component={ProductDetails}
-          /> */}
+        <Stack.Screen
+          options={() => ({
+            headerTitleAlign: 'center',
+          })}
+          name="ProductDetails"
+          component={ProductDetails}
+        />
       </Stack.Navigator>
     </React.Fragment>
   );

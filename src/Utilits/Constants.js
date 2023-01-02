@@ -9,8 +9,10 @@ export const httpClient = axios.create({
 });
 
 export const initialState = {
+  cart_items: null,
   login_response: null,
   all_product: [],
+  product_details: null,
   error: false,
   isLoading: false,
 };

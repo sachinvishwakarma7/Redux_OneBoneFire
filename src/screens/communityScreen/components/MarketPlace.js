@@ -17,7 +17,7 @@ const MarketPlace = ({navigation}) => {
   const [listView, setListView] = useState(true);
   const [serchValue, setSearchValue] = useState('');
 
-  console.log('marketPlace ,all_product', all_product?.items);
+  // console.log('marketPlace ,all_product', all_product?.items);
 
   // console.log('marketPlace ,product', product);
   // const {

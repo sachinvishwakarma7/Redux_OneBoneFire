@@ -12,7 +12,7 @@ import {
 } from '../Constants/GetAllProduct.type';
 
 export const getProduct = token => {
-  console.log('GetAllProduct.action getProduct,token', token);
+  // console.log('GetAllProduct.action getProduct,token', token);
   return async dispatch => {
     dispatch({type: GET_PRODUCT_REQUEST});
     try {
@@ -25,19 +25,19 @@ export const getProduct = token => {
         payload: {all_product: data},
         error: false,
       });
-      console.log('GetAllProduct.action getProduct', data);
+      // console.log('GetAllProduct.action getProduct', data);
       return data;
     } catch (error) {
       if (error.response) {
         dispatch({
           type: GET_PRODUCT_FAILURE,
-          payload: {all_product: error},
+          payload: {all_product: null},
           error: true,
         });
       } else {
         dispatch({
           type: GET_PRODUCT_FAILURE,
-          payload: {all_product: error},
+          payload: {all_product: null},
           error: true,
         });
       }

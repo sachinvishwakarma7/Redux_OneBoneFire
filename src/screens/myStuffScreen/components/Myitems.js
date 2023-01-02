@@ -256,9 +256,14 @@ export default Myitems;
 */
 
 import {View, Text} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useSelector} from 'react-redux';
 
 const Myitems = () => {
+  const {cart_items} = useSelector(state => state.cartItemsReducer);
+  useEffect(() => {
+    console.log('Myitems cart_items', cart_items);
+  }, [cart_items]);
   return (
     <View>
       <Text>Myitems</Text>
