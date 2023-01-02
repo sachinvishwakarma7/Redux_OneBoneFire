@@ -13,15 +13,13 @@ const MarketPlace = ({navigation}) => {
     state => state.getAllProductReducer,
   );
 
-  const loginData = login_response ? login_response.id : []
-
   const [product, setProduct] = useState([]);
   const [listView, setListView] = useState(true);
   const [serchValue, setSearchValue] = useState('');
 
-  // console.log('marketPlace ,all_product', all_product?.items);
+  console.log('marketPlace ,all_product', all_product?.items);
 
-  console.log('marketPlace ,product', product);
+  // console.log('marketPlace ,product', product);
   // const {
   //   setIsLoading,
   //   isLoading,
@@ -50,20 +48,20 @@ const MarketPlace = ({navigation}) => {
     return productItem.includes(searchValueToUpperCase);
   });
 
+  const getListView = view => {
+    setListView(view);
+  };
+
+  // const triggerPageSize = value => {
+  //   console.log(pageSize + value);
+  //   setPageSize(pageSize + value);
+  // };
+
   useEffect(() => {
     // console.log(login_response?.token);
     dispatch(getProduct(login_response?.token));
     setProduct(all_product?.items);
   }, [product]);
-
-  const getListView = view => {
-    setListView(view);
-  };
-
-  const triggerPageSize = value => {
-    console.log(pageSize + value);
-    setPageSize(pageSize + value);
-  };
 
   return (
     <SafeAreaView>

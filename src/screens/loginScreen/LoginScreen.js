@@ -5,10 +5,9 @@ import {
   TextInput,
   Image,
   TouchableOpacity,
-  ActivityIndicator,
   Alert,
 } from 'react-native';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {SignIn} from '../../redux/Action/Login.action';
 
@@ -41,7 +40,6 @@ const LoginScreen = ({navigation}) => {
   };
 
   const _onPressLogin = async () => {
-
     if (email && password) {
       const response = await dispatch(SignIn(userinformation));
       console.log('response', response);
@@ -123,8 +121,8 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   inputContainer: {

@@ -6,7 +6,7 @@ import {
 } from '../Constants/GetAllProduct.type';
 
 export const getAllProductReducer = (state = initialState, action) => {
-  console.log('getAllProductReducer action.payload', action.payload);
+  // console.log('getAllProductReducer action.payload', action.payload);
   switch (action.type) {
     case GET_PRODUCT_REQUEST:
       return {
